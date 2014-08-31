@@ -9,7 +9,7 @@ function KillFeed( victim, wep, attacker )
 		if ( attacker:IsPlayer() ) and ( attacker ~= victim ) and attacker:IsTraitor() then
 			umsg.Start( "KillFeed", victim )
 				umsg.String( attacker:Nick() ) 	-- Player Name
-				if attacker:IsSpec() then
+				if attacker:IsSpec() and victim:IsSpec() then
 					umsg.Char(4)
 				else
 					umsg.Char( 2 ) 					-- Team Number
@@ -21,7 +21,7 @@ function KillFeed( victim, wep, attacker )
 		if ( attacker:IsPlayer() ) and ( attacker ~= victim	) and attacker:IsDetective() then
 			umsg.Start( "KillFeed" , victim	)
 				umsg.String( attacker:Nick() )
-				if attacker:IsSpec() then
+				if attacker:IsSpec() and victim:IsSpec() then
 					umsg.Char(4)
 				else
 					umsg.Char( 3 ) 					-- Team Number
@@ -33,7 +33,7 @@ function KillFeed( victim, wep, attacker )
 		if ( attacker:IsPlayer() ) and ( attacker ~= victim	) and !attacker:IsDetective() and !attacker:IsTraitor() then
 			umsg.Start( "KillFeed", victim	)
 				umsg.String( attacker:Nick() )
-				if attacker:IsSpec() then
+				if attacker:IsSpec() and victim:IsSpec() then
 					umsg.Char(4)
 				else
 					umsg.Char( 1 ) 					-- Team Number
